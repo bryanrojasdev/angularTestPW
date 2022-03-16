@@ -1,0 +1,9 @@
+<div class="topnav"> 
+    
+    <a *ngFor="let item of lastSearch; index as i;" (click)="searchItem(item)">{{item}}</a>
+  
+    <div class="search-container"> <form>
+    <input #filterInput type="text" placeholder="Search.." name="search" [(ngModel)]="search"> <button (click)="onEnter(filterInput.value)" ><i class="fa fa-search"></i></button>
+    </form>
+    </div>
+    </div>
