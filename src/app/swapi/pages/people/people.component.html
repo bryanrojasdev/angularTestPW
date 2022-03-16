@@ -1,0 +1,24 @@
+<!-- <app-people-details [people]="selectedPeople"></app-people-details> -->
+<app-searchbar [search]="filterList" (searchEvent)="filterList = $event"></app-searchbar>
+<app-navbar></app-navbar>
+
+<div class="table-content">
+    <table class="container">
+        <thead>
+            <tr>
+                <th><h1>Name</h1></th>
+                <th><h1>Height</h1></th>
+                <th><h1>Homeworld</h1></th>
+                <th><h1></h1></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let dummy of peopleList | filter:filterList ; let index = index" (click)="onChange(dummy)">
+                <td>{{dummy.name}}</td>
+                <td>{{dummy.height | altura}}</td>
+                <td>{{dummy.homeworld | planet}}</td>
+                <td><a routerLink="/people/{{dummy.id}}">More details</a></td>
+            </tr>           
+        </tbody>
+    </table>
+</div>

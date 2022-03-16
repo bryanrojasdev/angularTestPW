@@ -1,0 +1,22 @@
+<app-searchbar [search]="filterList" (searchEvent)="filterList = $event"></app-searchbar>
+<app-navbar></app-navbar>
+<div class="table-content">
+    <table class="container">
+        <thead>
+            <tr>
+                <th><h1>Name</h1></th>
+                <th><h1>Climate</h1></th>
+                <th><h1>Terrain</h1></th>
+                <th><h1></h1></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let dummy of planetList | filter:filterList ; let index = index" (click)="onChange(dummy)">
+                <td>{{dummy.name}}</td>
+                <td>{{dummy.climate}}</td>
+                <td>{{dummy.terrain}}</td>
+                <td><a routerLink="/planets/{{dummy.id}}">More details</a></td>
+            </tr>           
+        </tbody>
+    </table>
+</div>
